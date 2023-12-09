@@ -2,17 +2,6 @@ require('dotenv').config();
 const { ethers } = require('ethers');
 const { getGasPrice } = require('./gas.js')
 
-/*TODO: 
-1. Swap token for based token (we will use eth)
-2. Deposit to nonkyc.io
-3. Swap on nonky.io
-4. Withdraw to new address
-
-Nice to have:
-randomizing of withdraw amnts, say over multiple TX
-XMR swapping + unique wallet generation
-
-*/
 const privateKey = process.env.PRIVATE_KEY;
 const streamId = "211";
 const receiverAddress = "0x8bb542f597d10a69bc6ba28942e2378fec5137a9";

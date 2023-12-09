@@ -1,11 +1,9 @@
-NONKYC:
+Uniswap:
 
-Scan for deposits
-Keep track of last deposit received so we only act on new deposits
-Withdraw lesser amnt that that deposited
-
-1inch:
-
+TEST:
 Swap wETH for USDT
 
 
+Nice to have:
+randomizing of withdraw amnts, say over multiple TX
+XMR swapping + unique wallet generation
