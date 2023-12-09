@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { ethers } = require('ethers');
+const { getGasPrice } = require('./gas.js')
 
 /*TODO: 
 1. Swap token for based token (we will use eth)
@@ -26,16 +27,6 @@ const wallet = new ethers.Wallet(privateKey, provider);
 
 let totalAmountWithdrawn;
 
-async function getGasPrice() {
-  try {
-    const gasPrice = await provider.getGasPrice();
-    return gasPrice;
-  } catch (error) {
-    console.error('Error getting gas price:', error.message);
-    throw error;
-  }
-}
-
 async function withdrawMaxFromStream() {
   try {
     const abi = ['function withdrawMax(uint256 streamId, address to) external'];
@@ -58,6 +49,3 @@ async function withdrawMaxFromStream() {
     console.error('Error withdrawing max from stream:', error.message);
   }
 }
-
-// Run the function every 12 hours
-setInterval(withdrawMaxFromStream, 12 * 60 * 60 * 1000);
