@@ -6,6 +6,7 @@ const { getGasPrice } = require('./gas.js');
 
 const privateKey = process.env.PRIVATE_KEY;
 const rpcProvider = process.env.RPC_PROVIDER;
+const gasLimit = 11620000; // Set a static gas limit
 
 const fromTokenAddress = '0x82af49447d8a07e3bd95bd0d56f35241523fbab1';
 const toTokenAddress = '0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9';
@@ -40,7 +41,7 @@ async function swapTokens() {
       path,
       wallet.address,
       deadline,
-      { value: amountIn, gasPrice: gasPrice }
+      { value: amountIn, gasPrice: gasPrice, gasLimit: gasLimit }
     );
 
     const receipt = await tx.wait();
